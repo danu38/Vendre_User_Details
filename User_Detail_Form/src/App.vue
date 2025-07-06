@@ -1,16 +1,31 @@
 <template>
-  <div class="p-6 max-w-4xl mx-auto">
+  <div class="min-h-screen bg-white flex justify-center">
+    <div class="w-full max-w-4xl px-4 py-8">
     <h1 class="text-3xl font-bold mb-6 text-center">Our Team</h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div v-for="user in users" :key="user.id" class="bg-white p-4 shadow rounded-lg text-center">
-        <img :src="user.image" alt="Profile" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-        <h2 class="text-lg font-semibold">{{ user.firstName }} {{ user.lastName }}</h2>
-        <a :href="'mailto:' + user.email" class="text-blue-600 hover:underline text-sm">
-          Contact
-        </a>
-      </div>
-    </div>
+         <div class="space-y-8">
+        <div
+          v-for="user in users"
+          :key="user.id"
+          class="flex flex-col sm:flex-row items-center sm:items-start gap-4"
+        >
+          <img
+            :src="user.image"
+            alt="Profile"
+            class="w-24 h-24 rounded-full object-cover"
+          />
+          <div class="text-center sm:text-left">
+            <h2 class="text-xl font-semibold">{{ user.firstName }} {{ user.lastName }}</h2>
+            <a
+              :href="'mailto:' + user.email"
+              class="text-green-600 hover:underline"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div> 
+      
 
     <!-- Pagination -->
     <div class="flex justify-center mt-6 space-x-2">
@@ -26,6 +41,8 @@
         {{ page }}
       </button>
     </div>
+
+  </div>
   </div>
 </template>
 
